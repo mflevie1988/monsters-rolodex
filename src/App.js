@@ -9,7 +9,8 @@ class App extends Component {
 
     this.state = {
       monsters: [],
-      searchField: ""
+      searchField: "",
+      title: ""
     };
   }
 
@@ -36,9 +37,14 @@ class App extends Component {
         <h1>Monsters Rolodex</h1>
         <SearchBox
           placeholder="Search Monsters"
-          handleChange={(e) => this.setState({ searchField: e.target.value })}
+          handleChange={(e) =>
+            this.setState({
+              searchField: e.target.value,
+              title: e.target.value
+            })
+          }
         />
-        <CardList monsters={filteredMonsters}></CardList>
+        <CardList monsters={monsters}></CardList>
       </div>
     );
   }
